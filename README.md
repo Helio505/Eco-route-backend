@@ -116,3 +116,36 @@ Next steps:
 
 More information in our documentation:
 https://pris.ly/d/getting-started
+
+## Seed DB
+
+Execute `npx prisma db seed`.
+obs. Deleta tudo na DB primeiro.
+
+## Executar tudo no Docker
+
+```bash
+docker-compose up --build
+```
+
+ou `npm run` algum dos script docker.
+
+## Executar somente DB no docker, e restante local (para facilitar desenvolvimento)
+
+1 - Subir DB
+
+```bash
+docker-compose up -d database
+```
+
+obs. recomendo `docker-compose up down` primeiro.
+
+2 - Mudar "DATABASE_URL" para a segunda opção no arquivo `.env`.
+
+3 - Subir API
+
+```bash
+npm run start:watch
+```
+
+obs. hot reload.
