@@ -1,0 +1,7 @@
+/dist
+/node_modules
+/postgres-data
+/zhold
+
+.env
+.vscode
