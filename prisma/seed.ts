@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  // Limpando DB antes de popular
+  // Limpando DB antes de popular, se existirem dados
   await prisma.coleta.deleteMany();
   await prisma.enderecosLocal.deleteMany();
   await prisma.enderecosUsuario.deleteMany();
