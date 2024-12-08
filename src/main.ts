@@ -8,6 +8,9 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule);
 
+  // Prefix all routes with /api
+  app.setGlobalPrefix('api');
+
   // whitelisted
   app.enableCors({
     origin: process.env.CORS_ORIGIN,
