@@ -7,4 +7,4 @@ COPY .env ./
 RUN npm install
 COPY . .
 RUN npx prisma generate
-CMD npx prisma migrate deploy && npm run build && npm run start:prod
+CMD npx prisma migrate deploy && npm run build && npm run start:prod && npx prisma db seed
