@@ -34,7 +34,7 @@ model EnderecosUsuario {
   cidade      String  @db.VarChar(255)
   estado      String  @db.VarChar(255)
   cep         String  @db.VarChar(9)
-  usuario     Usuario @relation(fields: [usuarioId], references: [id])
+  usuario     Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
   usuarioId   Int
 }
 
@@ -52,12 +52,12 @@ model EnderecosLocal {
 
 model Coleta {
   id         Int            @id @default(autoincrement())
-  usuario    Usuario        @relation(fields: [usuarioId], references: [id])
+  usuario    Usuario        @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
   usuarioId  Int
   dataColeta DateTime       @default(now())
   peso       Float
   volume     Float
-  endereco   EnderecosLocal @relation(fields: [enderecoId], references: [id])
+  endereco   EnderecosLocal @relation(fields: [enderecoId], references: [id], onDelete: Cascade)
   enderecoId Int
   status     StatusColeta
   tipo       TipoColeta
