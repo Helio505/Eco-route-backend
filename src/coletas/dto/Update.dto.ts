@@ -1,42 +1,12 @@
-import { IsString, IsNotEmpty, IsOptional, IsInt } from 'class-validator';
-import { MaxLength } from 'class-validator';
-/* export class CreateDto {
-  // usuarioId
-  @IsInt()
-  @IsNotEmpty()
-  usuarioId: number;
+import { StatusColeta, TipoColeta } from '@prisma/client';
+import {
+  IsString,
+  IsNotEmpty,
+  IsOptional,
+  IsInt,
+  IsNumber,
+} from 'class-validator';
 
-  // dataColeta
-  @IsString()
-  @IsNotEmpty()
-  dataColeta: string;
-
-  // peso
-  @IsDecimal()
-  @IsNotEmpty()
-  peso: number;
-
-  // volume
-  @IsDecimal()
-  @IsNotEmpty()
-  volume: number;
-
-  // enderecoId
-  @IsInt()
-  @IsNotEmpty()
-  enderecoId: number;
-
-  // status
-  @IsString()
-  @IsNotEmpty()
-  status: StatusColeta;
-
-  // tipo
-  @IsString()
-  @IsNotEmpty()
-  tipo: TipoColeta;
-}
- */
 export class UpdateDto {
   // usuarioId
   @IsInt()
@@ -49,12 +19,12 @@ export class UpdateDto {
   dataColeta: string;
 
   // peso
-  @IsInt()
+  @IsNumber()
   @IsOptional()
   peso: number;
 
   // volume
-  @IsInt()
+  @IsNumber()
   @IsOptional()
   volume: number;
 
@@ -66,10 +36,10 @@ export class UpdateDto {
   // status
   @IsString()
   @IsOptional()
-  status: string;
+  status: StatusColeta;
 
   // tipo
   @IsString()
   @IsOptional()
-  tipo: string;
+  tipo: TipoColeta;
 }

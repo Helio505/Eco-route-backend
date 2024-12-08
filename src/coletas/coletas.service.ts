@@ -74,6 +74,24 @@ export class ColetasService {
     if (!currentColeta) {
       throw new NotFoundException(`Coleta com id ${id} não encontrada`);
     }
+
+    try {
+      // Atualizar
+      const coleta = await this.prisma.coleta.update({
+        where: {
+          id: Number(id),
+        },
+        data: {
+          ...dto,
+        },
+      });
+      return coleta;
+    } catch (error) {
+      // Verificar se o erro tem uma mensagem
+      console.log(error);
+      const errorMessage = error.message || 'Erro Interno do Servidor';
+      throw new InternalServerErrorException(`Erro: ${errorMessage}`);
+    }
   }
 
   async remove(id: string) {

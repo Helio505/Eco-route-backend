@@ -1,13 +1,5 @@
 import { StatusColeta, TipoColeta } from '@prisma/client';
-import {
-  IsString,
-  IsNotEmpty,
-  IsOptional,
-  IsInt,
-  IsDecimal,
-  IsEnum,
-} from 'class-validator';
-import { MaxLength } from 'class-validator';
+import { IsString, IsNotEmpty, IsInt, IsNumber } from 'class-validator';
 
 export class CreateDto {
   // usuarioId
@@ -15,18 +7,13 @@ export class CreateDto {
   @IsNotEmpty()
   usuarioId: number;
 
-  // dataColeta
-  @IsString()
-  @IsNotEmpty()
-  dataColeta: string;
-
   // peso
-  @IsDecimal()
+  @IsNumber()
   @IsNotEmpty()
   peso: number;
 
   // volume
-  @IsDecimal()
+  @IsNumber()
   @IsNotEmpty()
   volume: number;
 
